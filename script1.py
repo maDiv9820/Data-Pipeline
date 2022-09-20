@@ -68,9 +68,6 @@ class SegregateData:
         except Exception as e:
             print('Exception:', e)
 
-    # Function to return final modified dataframe with required values
-    def dataframe(self):
-        return self.__dataframe
 
 dataframes = []
 file_path = ['samsung_streaming.csv','fitbit_streaming.csv']
