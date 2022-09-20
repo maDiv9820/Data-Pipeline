@@ -36,7 +36,7 @@ class SQSToDB:
     
     # Function to save the data into the database
     def __saveToDB(self,values):
-        connector = sqlite3.connect('database.db')  # Connecting with the database
+        connector = sqlite3.connect('database.sqlite')  # Connecting with the database
         df =  pd.DataFrame(eval(values))    # Creating a dataframe of the given values
         df.to_sql('heart_rate', connector, if_exists = 'append', index = False) # Dumping into the table
 
