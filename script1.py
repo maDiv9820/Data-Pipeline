@@ -1,14 +1,11 @@
-import pandas as pd     # For opening and creating dataframes
-import numpy as np      # For creating mathematical and array operations
-import boto3            # For using AWS services in python
-import json             # Converting from Python to JSON format or vice-versa
+import library as lb
 
 # Class to segregate data whether it is Samsung or Fitbit and return new dataframe with required values
 class SegregateData:
     def __init__(self):
         # Initialising an empty dataframe with required headers
-        self.__fitbit_headers = ['Id', 'Time', 'Value']
-        self.__samsung_headers = ['heart_rate', 'max', 'start_time', 'end_time', 'create_time', 'update_time', 'min', 'uuid']
+        self.__fitbit_headers = lb.fitbit_headers
+        self.__samsung_headers = lb.samsung_headers
     
     def __is_fitbit(self,dataframe):
         # As from the sample fitbit, there are 3 columns in the fit, so we can assume that the given file
@@ -23,20 +20,19 @@ class SegregateData:
             return True
         return False
 
-    def __add_to_sqs(self, values):
+    def __add_to_sqs(self, message):
         try:
             # Create SQS client
-            sqs_client = boto3.client("sqs",endpoint_url = "http://localhost:4566")
-            message = values
+            sqs_client = lb.boto3.client("sqs", endpoint_url = lb.endpoint_url)
             # Sending message to SQS queue
             response = sqs_client.send_message(
-                QueueUrl="http://localhost:4566/000000000000/queue",
-                MessageBody=json.dumps(message)
+                QueueUrl = lb.queue_url,
+                MessageBody = lb.json.dumps(message)
             )
         except Exception as e:
             print('Exception:',e)
 
-    def __add_to_dataframe_fitbit(self,dataframe):
+    def __create_msg_fitbit(self,dataframe):
         values = {
             'timestamp': list(dataframe['Time']),
             'user_id': list(dataframe['Id']),
@@ -45,7 +41,7 @@ class SegregateData:
         }
         self.__add_to_sqs(values)
             
-    def __add_to_dataframe_samsung(self,dataframe):
+    def __create_msg_samsung(self,dataframe):
         values = {
             'timestamp': list(dataframe['create_time']),
             'user_id': list(dataframe['uuid']),
@@ -57,20 +53,19 @@ class SegregateData:
     # Function to fit the file to required dataframe
     def fit(self,filepath):
         try:
-            file_dataframe = pd.read_csv(filepath)     # Reading csv file from the given file path
+            file_dataframe = lb.pd.read_csv(filepath)     # Reading csv file from the given file path
             is_fitbit = self.__is_fitbit(file_dataframe) # Checking whether data belongs to fitbit or not
             if is_fitbit:
-                self.__add_to_dataframe_fitbit(file_dataframe)
+                self.__create_msg_fitbit(file_dataframe)
             else:
                 is_samsung = self.__is_samsung(file_dataframe)
                 if is_samsung:
-                    self.__add_to_dataframe_samsung(file_dataframe)
+                    self.__create_msg_samsung(file_dataframe)
         except Exception as e:
             print('Exception:', e)
 
 
-dataframes = []
-file_path = ['samsung_streaming.csv','fitbit_streaming.csv']
-for path in file_path:    
+file_paths = lb.file_paths
+for path in file_paths:    
     obj = SegregateData()
     obj.fit(filepath = path)
