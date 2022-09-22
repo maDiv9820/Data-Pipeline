@@ -15,9 +15,11 @@ fitbit_headers = eval(config.get('Script1', 'fitbit_headers'))
 file_paths = eval(config.get('Script1', 'file_paths'))
 queue_url = config.get('AWS', 'queue_url')
 endpoint_url = config.get('AWS', 'endpoint_url')
-data_headers = eval(config.get('Script2', 'data_headers'))
+data_headers = eval(config.get('Script1', 'data_headers'))
 database_name = config.get('Script2', 'database_name')
 table_name = config.get('Script2', 'table_name')
+data_fitbit_dict = eval(config.get('Script1', 'data_fitbit_dict'))
+data_samsung_dict = eval(config.get('Script1', 'data_samsung_dict'))
 
 # Creating a log file
 logging.basicConfig(filename="log.txt", level=logging.DEBUG, format="%(asctime)s %(message)s")
