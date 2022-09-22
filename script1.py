@@ -61,7 +61,7 @@ class SegregateData:
         for col in lb.data_headers[:-1]:
             fitbit_col = lb.data_fitbit_dict[col]
             values[col] = list(dataframe[self.__fitbit_dict[fitbit_col]])
-        values['vendor'] = 'Fitbit'
+        values[lb.data_headers[-1]] = 'Fitbit'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
             
@@ -70,7 +70,7 @@ class SegregateData:
         for col in lb.data_headers[:-1]:
             samsung_col = lb.data_samsung_dict[col]
             values[col] = list(dataframe[self.__samsung_dict[samsung_col]])
-        values['vendor'] = 'Samsung'
+        values[lb.data_headers[-1]] = 'Samsung'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
         
