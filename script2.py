@@ -28,6 +28,7 @@ class SQSToDB:
                 self.__messages = response['Messages']
                 lb.logging.info(f'Messages fetched from the queue successfully')
             except Exception as e:
+                lb.logging.info('Queue is empty.')
                 break
     
     
@@ -35,11 +36,10 @@ class SQSToDB:
     def __saveToDB(self):
         if len(self.__messages) > 0:
             connector = lb.sqlite3.connect(lb.database_name)  # Connecting with the database
-            df =  lb.pd.DataFrame([], columns = lb.data_headers)   # Creating a dataframe of the given values
             for message in self.__messages:
-                temp_df = lb.pd.DataFrame(eval(message['Body']))
-                df = lb.pd.concat([df,temp_df], ignore_index = True)
-            df.to_sql(lb.table_name, connector, if_exists = 'append', index = False) # Dumping into the table
+                body = eval(message['Body'])
+                temp_df = lb.pd.DataFrame([list(body.values())], columns = list(body.keys()))
+                temp_df.to_sql(lb.table_name, connector, if_exists = 'append', index = False) # Dumping into the table
             lb.logging.info(f'All data dump to the database successfully')
 
     def __delete_messages(self):

@@ -56,23 +56,35 @@ class SegregateData:
         except Exception as e:
             lb.logging.error(f'Error: {e}')
 
-    def __create_msg_fitbit(self,dataframe):
+    def __create_msg_fitbit(self,dictionary):
         values = {}
         for col in lb.data_headers[:-1]:
             fitbit_col = lb.data_fitbit_dict[col]
-            values[col] = list(dataframe[self.__fitbit_dict[fitbit_col]])
+            values[col] = dictionary[self.__fitbit_dict[fitbit_col]]
         values[lb.data_headers[-1]] = 'Fitbit'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
             
-    def __create_msg_samsung(self,dataframe):
+    def __create_msg_samsung(self,dictionary):
         values = {}
         for col in lb.data_headers[:-1]:
             samsung_col = lb.data_samsung_dict[col]
-            values[col] = list(dataframe[self.__samsung_dict[samsung_col]])
+            values[col] = dictionary[self.__samsung_dict[samsung_col]]
         values[lb.data_headers[-1]] = 'Samsung'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
+
+    # For streaming the data
+    def __stream_data(self, dataframe, isfit = False, issamsung = False):
+        for row in dataframe.values:
+            values = {}
+            for index in range(len(dataframe.columns)):
+                values[dataframe.columns[index]] = row[index]
+            if isfit:
+                self.__create_msg_fitbit(values)
+            elif issamsung:
+                self.__create_msg_samsung(values)
+
         
     # Function to fit the file to required dataframe
     def fit(self,filepath):
@@ -80,11 +92,11 @@ class SegregateData:
             file_dataframe = lb.pd.read_csv(filepath)     # Reading csv file from the given file path
             is_fitbit = self.__is_fitbit(file_dataframe) # Checking whether data belongs to fitbit or not
             if is_fitbit:
-                self.__create_msg_fitbit(file_dataframe)
+                self.__stream_data(file_dataframe, isfit = True)
             else:
                 is_samsung = self.__is_samsung(file_dataframe)
                 if is_samsung:
-                    self.__create_msg_samsung(file_dataframe)
+                    self.__stream_data(file_dataframe, issamsung = True)
         except Exception as e:
             lb.logging.error(f'Error: {e}')
 
