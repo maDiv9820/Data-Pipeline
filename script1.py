@@ -6,9 +6,13 @@ class SegregateData:
         # Initialising an empty dataframe with required headers
         self.__fitbit_headers = lb.fitbit_headers
         self.__samsung_headers = lb.samsung_headers
+        
+        # For Mapping
         self.__fitbit_dict = {}
         self.__samsung_dict = {}
-
+        
+        # Creating a sqs client for sending the message
+        self.__sqs_client = lb.boto3.client("sqs", endpoint_url = lb.endpoint_url)
     
     def __is_fitbit(self,dataframe):
         # As from the sample fitbit, there are 3 columns in the fit, so we can assume that the given file
@@ -42,19 +46,20 @@ class SegregateData:
             return False
 
         return True
-
+    
+    # Function to add message to queue
     def __add_to_sqs(self, message):
         try:
-            # Create SQS client
-            sqs_client = lb.boto3.client("sqs", endpoint_url = lb.endpoint_url)
             # Sending message to SQS queue
-            response = sqs_client.send_message(
+            response = self.__sqs_client.send_message(
                 QueueUrl = lb.queue_url,
                 MessageBody = lb.json.dumps(message)
             )
             lb.logging.info(f'Added to Queue Successfully')
         except Exception as e:
             lb.logging.error(f'Error: {e}')
+    
+    # ---------------------- Creating message for Queue in the required data format ---------------------------------- #
 
     def __create_msg_fitbit(self,dictionary):
         values = {}
@@ -73,12 +78,14 @@ class SegregateData:
         values[lb.data_headers[-1]] = 'Samsung'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
+    
+    # ---------------------------------------------------------------------------------------------------------------- #
 
     # For streaming the data
     def __stream_data(self, dataframe, isfit = False, issamsung = False):
-        for row in dataframe.values:
+        for row in dataframe.values:        # Fetching each row from the Dataframe
             values = {}
-            for index in range(len(dataframe.columns)):
+            for index in range(len(dataframe.columns)):     # Creating a dictionary for each row
                 values[dataframe.columns[index]] = row[index]
             if isfit:
                 self.__create_msg_fitbit(values)
@@ -89,22 +96,18 @@ class SegregateData:
     # Function to fit the file to required dataframe
     def fit(self,filepath):
         try:
-            file_dataframe = lb.pd.read_csv(filepath)     # Reading csv file from the given file path
-            is_fitbit = self.__is_fitbit(file_dataframe) # Checking whether data belongs to fitbit or not
-            if is_fitbit:
+            file_dataframe = lb.pd.read_csv(filepath)       # Reading csv file from the given file path
+            if self.__is_fitbit(file_dataframe):            # Checking whether data belongs to fitbit or not
                 self.__stream_data(file_dataframe, isfit = True)
-            else:
-                is_samsung = self.__is_samsung(file_dataframe)
-                if is_samsung:
-                    self.__stream_data(file_dataframe, issamsung = True)
+            elif self.__is_samsung(file_dataframe):         # Checking whether data belongs to samsung or not
+                self.__stream_data(file_dataframe, issamsung = True)
         except Exception as e:
             lb.logging.error(f'Error: {e}')
 
 # Main Code
 if __name__ == '__main__':
     try:
-        file_paths = lb.file_paths
-        for path in file_paths:    
+        for path in lb.file_paths:    
             obj = SegregateData()
             obj.fit(filepath = path)
         lb.logging.info(f'Process Completed successfully')

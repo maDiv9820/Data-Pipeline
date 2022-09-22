@@ -42,6 +42,7 @@ class SQSToDB:
                 temp_df.to_sql(lb.table_name, connector, if_exists = 'append', index = False) # Dumping into the table
             lb.logging.info(f'All data dump to the database successfully')
 
+    # Deleting message from Queue
     def __delete_messages(self):
         if len(self.__messages) > 0:
             for message in self.__messages:
