@@ -6,19 +6,42 @@ class SegregateData:
         # Initialising an empty dataframe with required headers
         self.__fitbit_headers = lb.fitbit_headers
         self.__samsung_headers = lb.samsung_headers
+        self.__fitbit_dict = {}
+        self.__samsung_dict = {}
+
     
     def __is_fitbit(self,dataframe):
         # As from the sample fitbit, there are 3 columns in the fit, so we can assume that the given file
         # can be of fitbit device
-        if list(dataframe.columns) == self.__fitbit_headers:
-            return True
-        return False
+        colcount = 0
+        for fitcol in self.__fitbit_headers:
+            for col in dataframe.columns:
+                if fitcol.lower() in col.lower():
+                    colcount = colcount+1
+                    self.__fitbit_dict[fitcol.lower()] = col
+                    break
+
+        if colcount != len(dataframe.columns):
+            self.__fitbit_dict = {}
+            return False
+        
+        return True
 
     def __is_samsung(self,dataframe):
         # Checking whether dataframe has same columns as in samsung sample file
-        if list(dataframe.columns) == self.__samsung_headers:
-            return True
-        return False
+        colcount = 0
+        for samcol in self.__samsung_headers:
+            for col in dataframe.columns:
+                if samcol.lower() in col.lower():
+                    colcount = colcount+1
+                    self.__samsung_dict[samcol.lower()] = col
+                    break
+
+        if colcount != len(dataframe.columns):
+            self.__samsung_dict = {}
+            return False
+
+        return True
 
     def __add_to_sqs(self, message):
         try:
@@ -34,22 +57,20 @@ class SegregateData:
             lb.logging.error(f'Error: {e}')
 
     def __create_msg_fitbit(self,dataframe):
-        values = {
-            'timestamp': list(dataframe['Time']),
-            'user_id': list(dataframe['Id']),
-            'heart_rate': list(dataframe['Value']),
-            'vendor': 'Fitbit'
-        }
+        values = {}
+        for col in lb.data_headers[:-1]:
+            fitbit_col = lb.data_fitbit_dict[col]
+            values[col] = list(dataframe[self.__fitbit_dict[fitbit_col]])
+        values['vendor'] = 'Fitbit'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
             
     def __create_msg_samsung(self,dataframe):
-        values = {
-            'timestamp': list(dataframe['create_time']),
-            'user_id': list(dataframe['uuid']),
-            'heart_rate': list(dataframe['heart_rate']),
-            'vendor':'Samsung'
-        }
+        values = {}
+        for col in lb.data_headers[:-1]:
+            samsung_col = lb.data_samsung_dict[col]
+            values[col] = list(dataframe[self.__samsung_dict[samsung_col]])
+        values['vendor'] = 'Samsung'
         lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
         
