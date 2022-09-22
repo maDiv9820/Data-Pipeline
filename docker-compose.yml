@@ -5,9 +5,9 @@ services:
   localstack:
     image: localstack/localstack:latest
     environment: 
-      - AWS_DEFAULT_REGION=ap-southeast-1
-      - EDGE_PORT=4566
-      - SERVICES=sqs
+      - AWS_DEFAULT_REGION = ap-southeast-1
+      - EDGE_PORT = 4566
+      - SERVICES = sqs
     ports:
       - '4566:4566'
     volumes:
