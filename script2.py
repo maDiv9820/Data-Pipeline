@@ -26,6 +26,7 @@ class SQSToDB:
                     WaitTimeSeconds = 0
                 )
                 self.__messages = response['Messages']
+                lb.logging.info(f'Messages fetched from the queue successfully')
             except Exception as e:
                 break
     
@@ -39,6 +40,7 @@ class SQSToDB:
                 temp_df = lb.pd.DataFrame(eval(message['Body']))
                 df = lb.pd.concat([df,temp_df], ignore_index = True)
             df.to_sql(lb.table_name, connector, if_exists = 'append', index = False) # Dumping into the table
+            lb.logging.info(f'All data dump to the database successfully')
 
     def __delete_messages(self):
         if len(self.__messages) > 0:
@@ -48,10 +50,14 @@ class SQSToDB:
                     QueueUrl = lb.queue_url,
                     ReceiptHandle = receipt_handle
                 )
+            lb.logging.info(f'Messages deleted from the queue successfully')
             self.__messages = []     # Since we have deleted from Queue, we can delete from object too
 
-try:
-    obj = SQSToDB()
-    obj.start()
-except Exception as e:
-    print('Exception:', e)
+# Main Code
+if __name__ == '__main__':
+    try:
+        obj = SQSToDB()
+        obj.start()
+        lb.logging.info(f'Process Completed successfully')
+    except Exception as e:
+        lb.logging.error(f'Error: {e}')

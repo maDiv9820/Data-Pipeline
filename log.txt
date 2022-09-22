@@ -1,0 +1,263 @@
+2022-09-22 09:49:08,606 Message Created Successfully
+2022-09-22 09:49:08,607 Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2022-09-22 09:49:08,608 Changing event name from before-call.apigateway to before-call.api-gateway
+2022-09-22 09:49:08,608 Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2022-09-22 09:49:08,610 Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2022-09-22 09:49:08,610 Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2022-09-22 09:49:08,610 Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2022-09-22 09:49:08,611 Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2022-09-22 09:49:08,613 Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2022-09-22 09:49:08,613 Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2022-09-22 09:49:08,613 Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2022-09-22 09:49:08,613 Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2022-09-22 09:49:08,616 IMDS ENDPOINT: http://169.254.169.254/
+2022-09-22 09:49:08,617 Looking for credentials via: env
+2022-09-22 09:49:08,617 Looking for credentials via: assume-role
+2022-09-22 09:49:08,617 Looking for credentials via: assume-role-with-web-identity
+2022-09-22 09:49:08,617 Looking for credentials via: sso
+2022-09-22 09:49:08,618 Looking for credentials via: shared-credentials-file
+2022-09-22 09:49:08,618 Found credentials in shared credentials file: ~/.aws/credentials
+2022-09-22 09:49:08,619 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/endpoints.json
+2022-09-22 09:49:08,629 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/sdk-default-configuration.json
+2022-09-22 09:49:08,630 Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f0ad53141f0>
+2022-09-22 09:49:08,636 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/sqs/2012-11-05/service-2.json
+2022-09-22 09:49:08,637 Event creating-client-class.sqs: calling handler <function add_generate_presigned_url at 0x7f0ad53fd790>
+2022-09-22 09:49:08,639 Setting sqs timeout as (60, 60)
+2022-09-22 09:49:08,639 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/_retry.json
+2022-09-22 09:49:08,640 Registering retry handlers for service: sqs
+2022-09-22 09:49:08,640 Event before-parameter-build.sqs.SendMessage: calling handler <function generate_idempotent_uuid at 0x7f0ad532fa60>
+2022-09-22 09:49:08,640 Event before-call.sqs.SendMessage: calling handler <function add_recursion_detection_header at 0x7f0ad532f700>
+2022-09-22 09:49:08,641 Event before-call.sqs.SendMessage: calling handler <function inject_api_version_header_if_needed at 0x7f0ad5336310>
+2022-09-22 09:49:08,641 Making request for OperationModel(name=SendMessage) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73'}, 'body': {'Action': 'SendMessage', 'Version': '2012-11-05', 'QueueUrl': 'http://localhost:4566/000000000000/queue', 'MessageBody': '{"timestamp": ["06/14/2021, 3:30:59 PM", "06/14/2021, 4:10:59 PM", "06/14/2021, 4:50:59 PM", "06/14/2021, 5:10:59 PM", "06/14/2021, 5:00:59 PM", "06/14/2021, 6:10:59 PM", "06/14/2021, 4:20:59 PM", "06/14/2021, 5:50:59 PM", "06/14/2021, 3:50:59 PM"], "user_id": ["uuid-d31139c4b34a483190b3429adedad097", "uuid-a39969205bc44b0ca1a02478e217a7e9", "uuid-d871206a4bb1429e8320ce58e3165589", "uuid-a39969205bc44b0ca1a02478e217a7e9", "uuid-9ad486e493f647da93ea9bd9eaf71105", "uuid-9ad486e493f647da93ea9bd9eaf71105", "uuid-333e493f647da93eddsda2343247133", "uuid-324234dsf3erewr243d345fdgf3453", "uuid-333e493f647da93eddsda2343247133"], "heart_rate": [74, 62, 68, 75, 69, 69, 68, 69, 79], "vendor": "Samsung"}'}, 'url': 'http://localhost:4566/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f0ad50398b0>, 'has_streaming_input': False, 'auth_type': None}}
+2022-09-22 09:49:08,641 Event request-created.sqs.SendMessage: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f0ad5039790>>
+2022-09-22 09:49:08,641 Event choose-signer.sqs.SendMessage: calling handler <function set_operation_specific_signer at 0x7f0ad532f940>
+2022-09-22 09:49:08,642 Calculating signature using v4 auth.
+2022-09-22 09:49:08,642 CanonicalRequest:
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:localhost:4566
+x-amz-date:20220922T041908Z
+
+content-type;host;x-amz-date
+8a262f808776ef7d137414f44f71fddb8631598e537a5fb2029d3f7100e92113
+2022-09-22 09:49:08,642 StringToSign:
+AWS4-HMAC-SHA256
+20220922T041908Z
+20220922/us-east-1/sqs/aws4_request
+6523a289f923840212c725059ad2bbd5e2161df5c9961508d720577c4584c62d
+2022-09-22 09:49:08,642 Signature:
+9cdf069404af74cc4918e3492e2b2e45f4bd41cfbe83ba96a8c9272a47decf9d
+2022-09-22 09:49:08,642 Event request-created.sqs.SendMessage: calling handler <function add_retry_headers at 0x7f0ad53369d0>
+2022-09-22 09:49:08,642 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:4566/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73', 'X-Amz-Date': b'20220922T041908Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=test/20220922/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=9cdf069404af74cc4918e3492e2b2e45f4bd41cfbe83ba96a8c9272a47decf9d', 'amz-sdk-invocation-id': b'9136b7b7-5c58-4d88-95c2-620c0aa852af', 'amz-sdk-request': b'attempt=1', 'Content-Length': '1072'}>
+2022-09-22 09:49:08,643 Starting new HTTP connection (1): localhost:4566
+2022-09-22 09:49:08,649 http://localhost:4566 "POST / HTTP/1.1" 200 412
+2022-09-22 09:49:08,650 Response headers: {'Content-Type': 'text/xml', 'Content-Length': '412', 'Connection': 'close', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH', 'Access-Control-Allow-Headers': 'authorization,cache-control,content-length,content-md5,content-type,etag,location,x-amz-acl,x-amz-content-sha256,x-amz-date,x-amz-request-id,x-amz-security-token,x-amz-tagging,x-amz-target,x-amz-user-agent,x-amz-version-id,x-amzn-requestid,x-localstack-target,amz-sdk-invocation-id,amz-sdk-request', 'Access-Control-Expose-Headers': 'etag,x-amz-version-id', 'date': 'Thu, 22 Sep 2022 04:19:08 GMT', 'server': 'hypercorn-h11'}
+2022-09-22 09:49:08,650 Response body:
+b'<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<SendMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><SendMessageResult><MessageId>026939c8-c9ad-452c-a524-4aa83904be66</MessageId><MD5OfMessageBody>0f7ee1a4fd7e7492dc0ae34cc1318af5</MD5OfMessageBody></SendMessageResult><ResponseMetadata><RequestId>HIBGJKXTDPU57XYYYGYTS6BUGZQCQV2VZOABWXSMJXUQ57D3EYRD</RequestId></ResponseMetadata></SendMessageResponse>'
+2022-09-22 09:49:08,651 Event needs-retry.sqs.SendMessage: calling handler <botocore.retryhandler.RetryHandler object at 0x7f0ad4feb280>
+2022-09-22 09:49:08,651 No retry needed.
+2022-09-22 09:49:08,651 Added to Queue Successfully
+2022-09-22 09:49:08,653 Message Created Successfully
+2022-09-22 09:49:08,653 Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f0ad53141f0>
+2022-09-22 09:49:08,653 Event creating-client-class.sqs: calling handler <function add_generate_presigned_url at 0x7f0ad53fd790>
+2022-09-22 09:49:08,654 Setting sqs timeout as (60, 60)
+2022-09-22 09:49:08,655 Registering retry handlers for service: sqs
+2022-09-22 09:49:08,655 Event before-parameter-build.sqs.SendMessage: calling handler <function generate_idempotent_uuid at 0x7f0ad532fa60>
+2022-09-22 09:49:08,656 Event before-call.sqs.SendMessage: calling handler <function add_recursion_detection_header at 0x7f0ad532f700>
+2022-09-22 09:49:08,656 Event before-call.sqs.SendMessage: calling handler <function inject_api_version_header_if_needed at 0x7f0ad5336310>
+2022-09-22 09:49:08,656 Making request for OperationModel(name=SendMessage) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73'}, 'body': {'Action': 'SendMessage', 'Version': '2012-11-05', 'QueueUrl': 'http://localhost:4566/000000000000/queue', 'MessageBody': '{"timestamp": ["4/12/2016 7:21:00 AM", "4/12/2016 7:21:05 AM", "4/12/2016 7:21:10 AM", "4/12/2016 7:21:20 AM", "4/12/2016 7:21:25 AM", "4/12/2016 7:22:05 AM", "4/12/2016 7:22:10 AM", "4/12/2016 7:22:15 AM", "4/12/2016 7:22:20 AM"], "user_id": [2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408], "heart_rate": [97, 102, 105, 103, 101, 95, 91, 93, 94], "vendor": "Fitbit"}'}, 'url': 'http://localhost:4566/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f0ad4ba2400>, 'has_streaming_input': False, 'auth_type': None}}
+2022-09-22 09:49:08,656 Event request-created.sqs.SendMessage: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f0ad4ba2370>>
+2022-09-22 09:49:08,656 Event choose-signer.sqs.SendMessage: calling handler <function set_operation_specific_signer at 0x7f0ad532f940>
+2022-09-22 09:49:08,657 Calculating signature using v4 auth.
+2022-09-22 09:49:08,657 CanonicalRequest:
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:localhost:4566
+x-amz-date:20220922T041908Z
+
+content-type;host;x-amz-date
+f107c28bde9d4603348cfd87606e5b80654c6a7b34f4cc726df3b79af3ab0e7a
+2022-09-22 09:49:08,657 StringToSign:
+AWS4-HMAC-SHA256
+20220922T041908Z
+20220922/us-east-1/sqs/aws4_request
+02bd16bceb35cdcd2fc4970ad7547941a48cf4623fbc2068437dfe97660a9935
+2022-09-22 09:49:08,657 Signature:
+61d9624f94223d6f7f664cb5137fc07e9fbb46907b4756703d766e99f9fd48cb
+2022-09-22 09:49:08,657 Event request-created.sqs.SendMessage: calling handler <function add_retry_headers at 0x7f0ad53369d0>
+2022-09-22 09:49:08,657 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:4566/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73', 'X-Amz-Date': b'20220922T041908Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=test/20220922/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=61d9624f94223d6f7f664cb5137fc07e9fbb46907b4756703d766e99f9fd48cb', 'amz-sdk-invocation-id': b'43463947-d176-451b-98f9-50bc00dfb4ff', 'amz-sdk-request': b'attempt=1', 'Content-Length': '746'}>
+2022-09-22 09:49:08,658 Starting new HTTP connection (1): localhost:4566
+2022-09-22 09:49:08,663 http://localhost:4566 "POST / HTTP/1.1" 200 412
+2022-09-22 09:49:08,664 Response headers: {'Content-Type': 'text/xml', 'Content-Length': '412', 'Connection': 'close', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH', 'Access-Control-Allow-Headers': 'authorization,cache-control,content-length,content-md5,content-type,etag,location,x-amz-acl,x-amz-content-sha256,x-amz-date,x-amz-request-id,x-amz-security-token,x-amz-tagging,x-amz-target,x-amz-user-agent,x-amz-version-id,x-amzn-requestid,x-localstack-target,amz-sdk-invocation-id,amz-sdk-request', 'Access-Control-Expose-Headers': 'etag,x-amz-version-id', 'date': 'Thu, 22 Sep 2022 04:19:08 GMT', 'server': 'hypercorn-h11'}
+2022-09-22 09:49:08,664 Response body:
+b'<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<SendMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><SendMessageResult><MessageId>f33d8bea-edbb-4e5c-82ca-7545455b4b27</MessageId><MD5OfMessageBody>0d7ce0160e05df924265eb25efe1320a</MD5OfMessageBody></SendMessageResult><ResponseMetadata><RequestId>N2SLRQCUYY1WITDEVSB0Y9T5X0VJ642G1P5911WXQZKHLVCGKE2J</RequestId></ResponseMetadata></SendMessageResponse>'
+2022-09-22 09:49:08,664 Event needs-retry.sqs.SendMessage: calling handler <botocore.retryhandler.RetryHandler object at 0x7f0ad4fcc520>
+2022-09-22 09:49:08,664 No retry needed.
+2022-09-22 09:49:08,665 Added to Queue Successfully
+2022-09-22 09:49:08,665 Process Completed successfully
+2022-09-22 09:49:14,521 Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2022-09-22 09:49:14,522 Changing event name from before-call.apigateway to before-call.api-gateway
+2022-09-22 09:49:14,523 Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2022-09-22 09:49:14,524 Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2022-09-22 09:49:14,524 Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2022-09-22 09:49:14,525 Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2022-09-22 09:49:14,525 Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2022-09-22 09:49:14,527 Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2022-09-22 09:49:14,527 Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2022-09-22 09:49:14,527 Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2022-09-22 09:49:14,527 Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2022-09-22 09:49:14,531 IMDS ENDPOINT: http://169.254.169.254/
+2022-09-22 09:49:14,532 Looking for credentials via: env
+2022-09-22 09:49:14,532 Looking for credentials via: assume-role
+2022-09-22 09:49:14,532 Looking for credentials via: assume-role-with-web-identity
+2022-09-22 09:49:14,532 Looking for credentials via: sso
+2022-09-22 09:49:14,532 Looking for credentials via: shared-credentials-file
+2022-09-22 09:49:14,532 Found credentials in shared credentials file: ~/.aws/credentials
+2022-09-22 09:49:14,533 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/endpoints.json
+2022-09-22 09:49:14,544 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/sdk-default-configuration.json
+2022-09-22 09:49:14,544 Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f56ad96e160>
+2022-09-22 09:49:14,550 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/sqs/2012-11-05/service-2.json
+2022-09-22 09:49:14,552 Event creating-client-class.sqs: calling handler <function add_generate_presigned_url at 0x7f56ada57700>
+2022-09-22 09:49:14,553 Setting sqs timeout as (60, 60)
+2022-09-22 09:49:14,554 Loading JSON file: /usr/local/lib/python3.8/dist-packages/botocore/data/_retry.json
+2022-09-22 09:49:14,554 Registering retry handlers for service: sqs
+2022-09-22 09:49:14,555 Event before-parameter-build.sqs.ReceiveMessage: calling handler <function generate_idempotent_uuid at 0x7f56ad9899d0>
+2022-09-22 09:49:14,555 Event before-call.sqs.ReceiveMessage: calling handler <function add_recursion_detection_header at 0x7f56ad989670>
+2022-09-22 09:49:14,555 Event before-call.sqs.ReceiveMessage: calling handler <function inject_api_version_header_if_needed at 0x7f56ad990280>
+2022-09-22 09:49:14,555 Making request for OperationModel(name=ReceiveMessage) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73'}, 'body': {'Action': 'ReceiveMessage', 'Version': '2012-11-05', 'QueueUrl': 'http://localhost:4566/000000000000/queue', 'AttributeName.1': 'timestamp', 'AttributeName.2': 'user_id', 'AttributeName.3': 'heart_rate', 'AttributeName.4': 'vendor', 'MaxNumberOfMessages': 10, 'MessageAttributeName.1': 'All', 'VisibilityTimeout': 2, 'WaitTimeSeconds': 0}, 'url': 'http://localhost:4566/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f56ad670220>, 'has_streaming_input': False, 'auth_type': None}}
+2022-09-22 09:49:14,555 Event request-created.sqs.ReceiveMessage: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f56ad670100>>
+2022-09-22 09:49:14,556 Event choose-signer.sqs.ReceiveMessage: calling handler <function set_operation_specific_signer at 0x7f56ad9898b0>
+2022-09-22 09:49:14,556 Calculating signature using v4 auth.
+2022-09-22 09:49:14,556 CanonicalRequest:
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:localhost:4566
+x-amz-date:20220922T041914Z
+
+content-type;host;x-amz-date
+4bb4b59b2cc141b4da7dc588c520ec2352b580055b5631d27863ad6c1b3d5885
+2022-09-22 09:49:14,556 StringToSign:
+AWS4-HMAC-SHA256
+20220922T041914Z
+20220922/us-east-1/sqs/aws4_request
+59f5ce3957c141b86c21ddbcb938132c17c268f759e6a56305a54c1a33d4ef84
+2022-09-22 09:49:14,556 Signature:
+16d5f6f10e78e44f37c2bc21f1674d01035751d31a9a6cbb08634d5ee77f22f0
+2022-09-22 09:49:14,556 Event request-created.sqs.ReceiveMessage: calling handler <function add_retry_headers at 0x7f56ad990940>
+2022-09-22 09:49:14,557 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:4566/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73', 'X-Amz-Date': b'20220922T041914Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=test/20220922/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=16d5f6f10e78e44f37c2bc21f1674d01035751d31a9a6cbb08634d5ee77f22f0', 'amz-sdk-invocation-id': b'd4b7711b-f5aa-460a-8c3c-532b2d43b20c', 'amz-sdk-request': b'attempt=1', 'Content-Length': '290'}>
+2022-09-22 09:49:14,557 Starting new HTTP connection (1): localhost:4566
+2022-09-22 09:49:14,564 http://localhost:4566 "POST / HTTP/1.1" 200 2504
+2022-09-22 09:49:14,564 Response headers: {'Content-Type': 'text/xml', 'Content-Length': '2504', 'Connection': 'close', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH', 'Access-Control-Allow-Headers': 'authorization,cache-control,content-length,content-md5,content-type,etag,location,x-amz-acl,x-amz-content-sha256,x-amz-date,x-amz-request-id,x-amz-security-token,x-amz-tagging,x-amz-target,x-amz-user-agent,x-amz-version-id,x-amzn-requestid,x-localstack-target,amz-sdk-invocation-id,amz-sdk-request', 'Access-Control-Expose-Headers': 'etag,x-amz-version-id', 'date': 'Thu, 22 Sep 2022 04:19:14 GMT', 'server': 'hypercorn-h11'}
+2022-09-22 09:49:14,564 Response body:
+b'<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ReceiveMessageResult><Message><MessageId>026939c8-c9ad-452c-a524-4aa83904be66</MessageId><MD5OfBody>0f7ee1a4fd7e7492dc0ae34cc1318af5</MD5OfBody><Body>{&quot;timestamp&quot;: [&quot;06/14/2021, 3:30:59 PM&quot;, &quot;06/14/2021, 4:10:59 PM&quot;, &quot;06/14/2021, 4:50:59 PM&quot;, &quot;06/14/2021, 5:10:59 PM&quot;, &quot;06/14/2021, 5:00:59 PM&quot;, &quot;06/14/2021, 6:10:59 PM&quot;, &quot;06/14/2021, 4:20:59 PM&quot;, &quot;06/14/2021, 5:50:59 PM&quot;, &quot;06/14/2021, 3:50:59 PM&quot;], &quot;user_id&quot;: [&quot;uuid-d31139c4b34a483190b3429adedad097&quot;, &quot;uuid-a39969205bc44b0ca1a02478e217a7e9&quot;, &quot;uuid-d871206a4bb1429e8320ce58e3165589&quot;, &quot;uuid-a39969205bc44b0ca1a02478e217a7e9&quot;, &quot;uuid-9ad486e493f647da93ea9bd9eaf71105&quot;, &quot;uuid-9ad486e493f647da93ea9bd9eaf71105&quot;, &quot;uuid-333e493f647da93eddsda2343247133&quot;, &quot;uuid-324234dsf3erewr243d345fdgf3453&quot;, &quot;uuid-333e493f647da93eddsda2343247133&quot;], &quot;heart_rate&quot;: [74, 62, 68, 75, 69, 69, 68, 69, 79], &quot;vendor&quot;: &quot;Samsung&quot;}</Body><ReceiptHandle>OWJkYjk1ODAtN2I5Mi00YzZlLWE1ZjAtNDUwM2VmMGMxZWViIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6cXVldWUgMDI2OTM5YzgtYzlhZC00NTJjLWE1MjQtNGFhODM5MDRiZTY2IDE2NjM4MjAzNTQuNTYxNzM4NQ==</ReceiptHandle></Message><Message><MessageId>f33d8bea-edbb-4e5c-82ca-7545455b4b27</MessageId><MD5OfBody>0d7ce0160e05df924265eb25efe1320a</MD5OfBody><Body>{&quot;timestamp&quot;: [&quot;4/12/2016 7:21:00 AM&quot;, &quot;4/12/2016 7:21:05 AM&quot;, &quot;4/12/2016 7:21:10 AM&quot;, &quot;4/12/2016 7:21:20 AM&quot;, &quot;4/12/2016 7:21:25 AM&quot;, &quot;4/12/2016 7:22:05 AM&quot;, &quot;4/12/2016 7:22:10 AM&quot;, &quot;4/12/2016 7:22:15 AM&quot;, &quot;4/12/2016 7:22:20 AM&quot;], &quot;user_id&quot;: [2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408, 2022484408], &quot;heart_rate&quot;: [97, 102, 105, 103, 101, 95, 91, 93, 94], &quot;vendor&quot;: &quot;Fitbit&quot;}</Body><ReceiptHandle>OGIxNDg4OGQtNDJlZC00MDJlLWFhZmMtNzJkMjhlNTM0YWFkIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6cXVldWUgZjMzZDhiZWEtZWRiYi00ZTVjLTgyY2EtNzU0NTQ1NWI0YjI3IDE2NjM4MjAzNTQuNTYxODg4</ReceiptHandle></Message></ReceiveMessageResult><ResponseMetadata><RequestId>BPA82F8SF2IXQYO1CNGDZMSIX5LKRI9CLLUC3W353R5HASTL7HL6</RequestId></ResponseMetadata></ReceiveMessageResponse>'
+2022-09-22 09:49:14,565 Event needs-retry.sqs.ReceiveMessage: calling handler <botocore.retryhandler.RetryHandler object at 0x7f56ad670bb0>
+2022-09-22 09:49:14,565 No retry needed.
+2022-09-22 09:49:14,565 Messages fetched from the queue successfully
+2022-09-22 09:49:14,565 Event before-parameter-build.sqs.ReceiveMessage: calling handler <function generate_idempotent_uuid at 0x7f56ad9899d0>
+2022-09-22 09:49:14,565 Event before-call.sqs.ReceiveMessage: calling handler <function add_recursion_detection_header at 0x7f56ad989670>
+2022-09-22 09:49:14,565 Event before-call.sqs.ReceiveMessage: calling handler <function inject_api_version_header_if_needed at 0x7f56ad990280>
+2022-09-22 09:49:14,565 Making request for OperationModel(name=ReceiveMessage) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73'}, 'body': {'Action': 'ReceiveMessage', 'Version': '2012-11-05', 'QueueUrl': 'http://localhost:4566/000000000000/queue', 'AttributeName.1': 'timestamp', 'AttributeName.2': 'user_id', 'AttributeName.3': 'heart_rate', 'AttributeName.4': 'vendor', 'MaxNumberOfMessages': 10, 'MessageAttributeName.1': 'All', 'VisibilityTimeout': 2, 'WaitTimeSeconds': 0}, 'url': 'http://localhost:4566/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f56ad670220>, 'has_streaming_input': False, 'auth_type': None}}
+2022-09-22 09:49:14,566 Event request-created.sqs.ReceiveMessage: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f56ad670100>>
+2022-09-22 09:49:14,566 Event choose-signer.sqs.ReceiveMessage: calling handler <function set_operation_specific_signer at 0x7f56ad9898b0>
+2022-09-22 09:49:14,566 Calculating signature using v4 auth.
+2022-09-22 09:49:14,566 CanonicalRequest:
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:localhost:4566
+x-amz-date:20220922T041914Z
+
+content-type;host;x-amz-date
+4bb4b59b2cc141b4da7dc588c520ec2352b580055b5631d27863ad6c1b3d5885
+2022-09-22 09:49:14,566 StringToSign:
+AWS4-HMAC-SHA256
+20220922T041914Z
+20220922/us-east-1/sqs/aws4_request
+59f5ce3957c141b86c21ddbcb938132c17c268f759e6a56305a54c1a33d4ef84
+2022-09-22 09:49:14,566 Signature:
+16d5f6f10e78e44f37c2bc21f1674d01035751d31a9a6cbb08634d5ee77f22f0
+2022-09-22 09:49:14,567 Event request-created.sqs.ReceiveMessage: calling handler <function add_retry_headers at 0x7f56ad990940>
+2022-09-22 09:49:14,567 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:4566/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73', 'X-Amz-Date': b'20220922T041914Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=test/20220922/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=16d5f6f10e78e44f37c2bc21f1674d01035751d31a9a6cbb08634d5ee77f22f0', 'amz-sdk-invocation-id': b'93bc02df-8f99-4125-abc0-1ed3b799e111', 'amz-sdk-request': b'attempt=1', 'Content-Length': '290'}>
+2022-09-22 09:49:14,567 Resetting dropped connection: localhost
+2022-09-22 09:49:14,574 http://localhost:4566 "POST / HTTP/1.1" 200 275
+2022-09-22 09:49:14,574 Response headers: {'Content-Type': 'text/xml', 'Content-Length': '275', 'Connection': 'close', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH', 'Access-Control-Allow-Headers': 'authorization,cache-control,content-length,content-md5,content-type,etag,location,x-amz-acl,x-amz-content-sha256,x-amz-date,x-amz-request-id,x-amz-security-token,x-amz-tagging,x-amz-target,x-amz-user-agent,x-amz-version-id,x-amzn-requestid,x-localstack-target,amz-sdk-invocation-id,amz-sdk-request', 'Access-Control-Expose-Headers': 'etag,x-amz-version-id', 'date': 'Thu, 22 Sep 2022 04:19:14 GMT', 'server': 'hypercorn-h11'}
+2022-09-22 09:49:14,574 Response body:
+b'<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<ReceiveMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ReceiveMessageResult /><ResponseMetadata><RequestId>6OZUQPFP4J8PBU7OTE4DV1ZS26MYVV5IE3WM7QSJ99B364HW4J44</RequestId></ResponseMetadata></ReceiveMessageResponse>'
+2022-09-22 09:49:14,574 Event needs-retry.sqs.ReceiveMessage: calling handler <botocore.retryhandler.RetryHandler object at 0x7f56ad670bb0>
+2022-09-22 09:49:14,574 No retry needed.
+2022-09-22 09:49:14,671 All data dump to the database successfully
+2022-09-22 09:49:14,671 Event before-parameter-build.sqs.DeleteMessage: calling handler <function generate_idempotent_uuid at 0x7f56ad9899d0>
+2022-09-22 09:49:14,672 Event before-call.sqs.DeleteMessage: calling handler <function add_recursion_detection_header at 0x7f56ad989670>
+2022-09-22 09:49:14,672 Event before-call.sqs.DeleteMessage: calling handler <function inject_api_version_header_if_needed at 0x7f56ad990280>
+2022-09-22 09:49:14,672 Making request for OperationModel(name=DeleteMessage) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73'}, 'body': {'Action': 'DeleteMessage', 'Version': '2012-11-05', 'QueueUrl': 'http://localhost:4566/000000000000/queue', 'ReceiptHandle': 'OWJkYjk1ODAtN2I5Mi00YzZlLWE1ZjAtNDUwM2VmMGMxZWViIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6cXVldWUgMDI2OTM5YzgtYzlhZC00NTJjLWE1MjQtNGFhODM5MDRiZTY2IDE2NjM4MjAzNTQuNTYxNzM4NQ=='}, 'url': 'http://localhost:4566/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f56ad670220>, 'has_streaming_input': False, 'auth_type': None}}
+2022-09-22 09:49:14,672 Event request-created.sqs.DeleteMessage: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f56ad670100>>
+2022-09-22 09:49:14,672 Event choose-signer.sqs.DeleteMessage: calling handler <function set_operation_specific_signer at 0x7f56ad9898b0>
+2022-09-22 09:49:14,673 Calculating signature using v4 auth.
+2022-09-22 09:49:14,673 CanonicalRequest:
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:localhost:4566
+x-amz-date:20220922T041914Z
+
+content-type;host;x-amz-date
+b54f03de90d95c9e105cea82b59c8235d71ff7a904e2a3b3671dd352ffac34bb
+2022-09-22 09:49:14,673 StringToSign:
+AWS4-HMAC-SHA256
+20220922T041914Z
+20220922/us-east-1/sqs/aws4_request
+092a8d3d7f92827b446469d897eafffb581d29322e8deabc843387abac79c477
+2022-09-22 09:49:14,673 Signature:
+e3c038e90ac1964d22ec297bbd963e4fae429c46dc0131d307a6050748280d59
+2022-09-22 09:49:14,673 Event request-created.sqs.DeleteMessage: calling handler <function add_retry_headers at 0x7f56ad990940>
+2022-09-22 09:49:14,674 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:4566/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73', 'X-Amz-Date': b'20220922T041914Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=test/20220922/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=e3c038e90ac1964d22ec297bbd963e4fae429c46dc0131d307a6050748280d59', 'amz-sdk-invocation-id': b'edf723a3-da9f-4ed3-b3ef-8795e227473e', 'amz-sdk-request': b'attempt=1', 'Content-Length': '300'}>
+2022-09-22 09:49:14,674 Resetting dropped connection: localhost
+2022-09-22 09:49:14,680 http://localhost:4566 "POST / HTTP/1.1" 200 249
+2022-09-22 09:49:14,681 Response headers: {'Content-Type': 'text/xml', 'Content-Length': '249', 'Connection': 'close', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH', 'Access-Control-Allow-Headers': 'authorization,cache-control,content-length,content-md5,content-type,etag,location,x-amz-acl,x-amz-content-sha256,x-amz-date,x-amz-request-id,x-amz-security-token,x-amz-tagging,x-amz-target,x-amz-user-agent,x-amz-version-id,x-amzn-requestid,x-localstack-target,amz-sdk-invocation-id,amz-sdk-request', 'Access-Control-Expose-Headers': 'etag,x-amz-version-id', 'date': 'Thu, 22 Sep 2022 04:19:14 GMT', 'server': 'hypercorn-h11'}
+2022-09-22 09:49:14,681 Response body:
+b'<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<DeleteMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ResponseMetadata><RequestId>UI503CKPXS52DLWVI7F1VO3W0VAUGQLT47WXIL10FPZZGNFPFHWI</RequestId></ResponseMetadata></DeleteMessageResponse>'
+2022-09-22 09:49:14,682 Event needs-retry.sqs.DeleteMessage: calling handler <botocore.retryhandler.RetryHandler object at 0x7f56ad670bb0>
+2022-09-22 09:49:14,682 No retry needed.
+2022-09-22 09:49:14,682 Event before-parameter-build.sqs.DeleteMessage: calling handler <function generate_idempotent_uuid at 0x7f56ad9899d0>
+2022-09-22 09:49:14,683 Event before-call.sqs.DeleteMessage: calling handler <function add_recursion_detection_header at 0x7f56ad989670>
+2022-09-22 09:49:14,683 Event before-call.sqs.DeleteMessage: calling handler <function inject_api_version_header_if_needed at 0x7f56ad990280>
+2022-09-22 09:49:14,683 Making request for OperationModel(name=DeleteMessage) with params: {'url_path': '/', 'query_string': '', 'method': 'POST', 'headers': {'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': 'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73'}, 'body': {'Action': 'DeleteMessage', 'Version': '2012-11-05', 'QueueUrl': 'http://localhost:4566/000000000000/queue', 'ReceiptHandle': 'OGIxNDg4OGQtNDJlZC00MDJlLWFhZmMtNzJkMjhlNTM0YWFkIGFybjphd3M6c3FzOnVzLWVhc3QtMTowMDAwMDAwMDAwMDA6cXVldWUgZjMzZDhiZWEtZWRiYi00ZTVjLTgyY2EtNzU0NTQ1NWI0YjI3IDE2NjM4MjAzNTQuNTYxODg4'}, 'url': 'http://localhost:4566/', 'context': {'client_region': 'us-east-1', 'client_config': <botocore.config.Config object at 0x7f56ad670220>, 'has_streaming_input': False, 'auth_type': None}}
+2022-09-22 09:49:14,683 Event request-created.sqs.DeleteMessage: calling handler <bound method RequestSigner.handler of <botocore.signers.RequestSigner object at 0x7f56ad670100>>
+2022-09-22 09:49:14,683 Event choose-signer.sqs.DeleteMessage: calling handler <function set_operation_specific_signer at 0x7f56ad9898b0>
+2022-09-22 09:49:14,683 Calculating signature using v4 auth.
+2022-09-22 09:49:14,683 CanonicalRequest:
+POST
+/
+
+content-type:application/x-www-form-urlencoded; charset=utf-8
+host:localhost:4566
+x-amz-date:20220922T041914Z
+
+content-type;host;x-amz-date
+5395453f5550b90d55f657a431f371fafa09aa6254ab4afb4dc3f033cee995cd
+2022-09-22 09:49:14,683 StringToSign:
+AWS4-HMAC-SHA256
+20220922T041914Z
+20220922/us-east-1/sqs/aws4_request
+dae72b9aac95f4ebea13a3ec087297eecc78604cd3e40f699c897ee869dca8ab
+2022-09-22 09:49:14,684 Signature:
+799be75c2eab369804e1867655685866beffbdf4091fd04dd53eaed9db787079
+2022-09-22 09:49:14,684 Event request-created.sqs.DeleteMessage: calling handler <function add_retry_headers at 0x7f56ad990940>
+2022-09-22 09:49:14,684 Sending http request: <AWSPreparedRequest stream_output=False, method=POST, url=http://localhost:4566/, headers={'Content-Type': b'application/x-www-form-urlencoded; charset=utf-8', 'User-Agent': b'Boto3/1.24.72 Python/3.8.10 Linux/5.4.0-126-generic Botocore/1.27.73', 'X-Amz-Date': b'20220922T041914Z', 'Authorization': b'AWS4-HMAC-SHA256 Credential=test/20220922/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=799be75c2eab369804e1867655685866beffbdf4091fd04dd53eaed9db787079', 'amz-sdk-invocation-id': b'58cfbb03-4b8e-4062-9927-67b162c40a08', 'amz-sdk-request': b'attempt=1', 'Content-Length': '292'}>
+2022-09-22 09:49:14,684 Resetting dropped connection: localhost
+2022-09-22 09:49:14,691 http://localhost:4566 "POST / HTTP/1.1" 200 249
+2022-09-22 09:49:14,691 Response headers: {'Content-Type': 'text/xml', 'Content-Length': '249', 'Connection': 'close', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'HEAD,GET,PUT,POST,DELETE,OPTIONS,PATCH', 'Access-Control-Allow-Headers': 'authorization,cache-control,content-length,content-md5,content-type,etag,location,x-amz-acl,x-amz-content-sha256,x-amz-date,x-amz-request-id,x-amz-security-token,x-amz-tagging,x-amz-target,x-amz-user-agent,x-amz-version-id,x-amzn-requestid,x-localstack-target,amz-sdk-invocation-id,amz-sdk-request', 'Access-Control-Expose-Headers': 'etag,x-amz-version-id', 'date': 'Thu, 22 Sep 2022 04:19:14 GMT', 'server': 'hypercorn-h11'}
+2022-09-22 09:49:14,691 Response body:
+b'<?xml version=\'1.0\' encoding=\'utf-8\'?>\n<DeleteMessageResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/"><ResponseMetadata><RequestId>BEK6NMQ2JXWZYFT4C9ACQM4HNUBBWEOR5NC1IE5X2YT1XRGC41WL</RequestId></ResponseMetadata></DeleteMessageResponse>'
+2022-09-22 09:49:14,692 Event needs-retry.sqs.DeleteMessage: calling handler <botocore.retryhandler.RetryHandler object at 0x7f56ad670bb0>
+2022-09-22 09:49:14,692 No retry needed.
+2022-09-22 09:49:14,692 Messages deleted from the queue successfully
+2022-09-22 09:49:14,692 Process Completed successfully

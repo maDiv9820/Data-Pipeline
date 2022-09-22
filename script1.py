@@ -29,8 +29,9 @@ class SegregateData:
                 QueueUrl = lb.queue_url,
                 MessageBody = lb.json.dumps(message)
             )
+            lb.logging.info(f'Added to Queue Successfully')
         except Exception as e:
-            print('Exception:',e)
+            lb.logging.error(f'Error: {e}')
 
     def __create_msg_fitbit(self,dataframe):
         values = {
@@ -39,6 +40,7 @@ class SegregateData:
             'heart_rate': list(dataframe['Value']),
             'vendor': 'Fitbit'
         }
+        lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
             
     def __create_msg_samsung(self,dataframe):
@@ -48,6 +50,7 @@ class SegregateData:
             'heart_rate': list(dataframe['heart_rate']),
             'vendor':'Samsung'
         }
+        lb.logging.info(f'Message Created Successfully')
         self.__add_to_sqs(values)
         
     # Function to fit the file to required dataframe
@@ -62,10 +65,15 @@ class SegregateData:
                 if is_samsung:
                     self.__create_msg_samsung(file_dataframe)
         except Exception as e:
-            print('Exception:', e)
+            lb.logging.error(f'Error: {e}')
 
-
-file_paths = lb.file_paths
-for path in file_paths:    
-    obj = SegregateData()
-    obj.fit(filepath = path)
+# Main Code
+if __name__ == '__main__':
+    try:
+        file_paths = lb.file_paths
+        for path in file_paths:    
+            obj = SegregateData()
+            obj.fit(filepath = path)
+        lb.logging.info(f'Process Completed successfully')
+    except Exception as e:
+        lb.logging.error(f'Error: {e}')
