@@ -11,8 +11,8 @@ class SegregateData:
         self.__fitbit_dict = {}
         self.__samsung_dict = {}
         
-        # Creating a sqs client for sending the message
-        self.__sqs_client = lb.boto3.client("sqs", endpoint_url = lb.endpoint_url)
+        # Creating a kinesis client for sending the message
+        self.__kinesis_client = lb.boto3.client('kinesis', endpoint_url = lb.endpoint_url)
     
     def __is_fitbit(self,dataframe):
         # As from the sample fitbit, there are 3 columns in the fit, so we can assume that the given file
@@ -46,16 +46,16 @@ class SegregateData:
             return False
 
         return True
-    
-    # Function to add message to queue
-    def __add_to_sqs(self, message):
+
+    # Function to add message to kinesis stream
+    def __add_to_kinesis(self, message):
         try:
-            # Sending message to SQS queue
-            response = self.__sqs_client.send_message(
-                QueueUrl = lb.queue_url,
-                MessageBody = lb.json.dumps(message)
+            response = self.__kinesis_client.put_record(
+                StreamName = lb.stream_name,
+                Data = lb.json.dumps(message),
+                PartitionKey = 'Partition_Key'
             )
-            lb.logging.info(f'Added to Queue Successfully')
+            print(response)
         except Exception as e:
             lb.logging.error(f'Error: {e}')
     
@@ -68,7 +68,7 @@ class SegregateData:
             values[col] = dictionary[self.__fitbit_dict[fitbit_col]]
         values[lb.data_headers[-1]] = 'Fitbit'
         lb.logging.info(f'Message Created Successfully')
-        self.__add_to_sqs(values)
+        self.__add_to_kinesis(values)
             
     def __create_msg_samsung(self,dictionary):
         values = {}
@@ -77,7 +77,7 @@ class SegregateData:
             values[col] = dictionary[self.__samsung_dict[samsung_col]]
         values[lb.data_headers[-1]] = 'Samsung'
         lb.logging.info(f'Message Created Successfully')
-        self.__add_to_sqs(values)
+        self.__add_to_kinesis(values)
     
     # ---------------------------------------------------------------------------------------------------------------- #
 
