@@ -5,6 +5,7 @@ import json             # Converting from Python to JSON format or vice-versa
 import sqlite3          # For creating a database and dumping data into the table
 import configparser     # To read config files for hard-coded values
 import logging          # To save logs
+import time             # For all the time related purposes
 
 # Taking out all the values from config file
 config = configparser.ConfigParser()
@@ -20,6 +21,7 @@ database_name = config.get('Script2', 'database_name')
 table_name = config.get('Script2', 'table_name')
 data_fitbit_dict = eval(config.get('Script1', 'data_fitbit_dict'))
 data_samsung_dict = eval(config.get('Script1', 'data_samsung_dict'))
+stream_name = config.get('AWS', 'stream_name')
 
 # Creating a log file
 logging.basicConfig(filename="log.txt", level=logging.DEBUG, format="%(asctime)s %(message)s")
